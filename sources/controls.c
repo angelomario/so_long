@@ -16,7 +16,13 @@ int	move_right(t_map *map, t_point position, t_activity activity,
 		t_pitures pictures)
 {
 	if (map->map[position.y][position.x + 1] == 'E' && activity.colate == 0)
+	{
+		activity.moves++;
+		show_matriz(map->map, "#.CEP");
+		ft_printf("Moves: \033[32m%d\033[0m\n", activity.moves);
+		ft_printf("Colate: \033[32m%d\033[0m\n", activity.colate);
 		end_game(map, position);
+	}
 	if (map->map[position.y][position.x + 1] == '0'
 			|| map->map[position.y][position.x + 1] == 'C')
 	{
@@ -34,7 +40,13 @@ int	move_left(t_map *map, t_point position, t_activity activity,
 		t_pitures pictures)
 {
 	if (map->map[position.y][position.x - 1] == 'E' && activity.colate == 0)
+	{
+		activity.moves++;
+		show_matriz(map->map, "#.CEP");
+		ft_printf("Moves: \033[32m%d\033[0m\n", activity.moves);
+		ft_printf("Colate: \033[32m%d\033[0m\n", activity.colate);
 		end_game(map, position);
+	}
 	if (map->map[position.y][position.x - 1] == '0'
 			|| map->map[position.y][position.x - 1] == 'C')
 	{
@@ -52,7 +64,13 @@ int	move_up(t_map *map, t_point position, t_activity activity,
 		t_pitures pictures)
 {
 	if (map->map[position.y - 1][position.x] == 'E' && activity.colate == 0)
+	{
+		activity.moves++;
+		show_matriz(map->map, "#.CEP");
+		ft_printf("Moves: \033[32m%d\033[0m\n", activity.moves);
+		ft_printf("Colate: \033[32m%d\033[0m\n", activity.colate);
 		end_game(map, position);
+	}
 	if (map->map[position.y - 1][position.x] == '0'
 			|| map->map[position.y - 1][position.x] == 'C')
 	{
@@ -69,9 +87,14 @@ int	move_up(t_map *map, t_point position, t_activity activity,
 int	move_down(t_map *map, t_point position, t_activity activity,
 		t_pitures pictures)
 {
-	if (map->map[position.y + 1][position.x] == 'E'
-			&& activity.colate == 0)
+	if (map->map[position.y + 1][position.x] == 'E' && activity.colate == 0)
+	{
+		activity.moves++;
+		show_matriz(map->map, "#.CEP");
+		ft_printf("Moves: \033[32m%d\033[0m\n", activity.moves);
+		ft_printf("Colate: \033[32m%d\033[0m\n", activity.colate);
 		end_game(map, position);
+	}
 	if ((map->map[position.y + 1][position.x] == '0')
 			|| map->map[position.y + 1][position.x] == 'C')
 	{

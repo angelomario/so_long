@@ -42,6 +42,8 @@ int	ft_count_var_game(char **map, char var)
 
 	j = 0;
 	qtd = 0;
+	if (map == NULL || map[0] == NULL)
+		return (0);
 	while (map[j] != NULL)
 	{
 		i = 0;

@@ -22,7 +22,7 @@ void	free_matriz(char **mat)
 		free(mat);
 		return ;
 	}
-	while (mat[i] != NULL)
+	while (mat[i])
 		free(mat[i++]);
 	free(mat);
 }

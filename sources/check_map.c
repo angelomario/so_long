@@ -51,6 +51,11 @@ int	is_valid_map(char **map)
 	tam = ft_countstr(map[i++]);
 	while (map[i] && (ft_countstr(map[i]) == tam))
 		i++;
+	if ((ft_countstr(map[0]) > 48) || ft_countline(map) > 27)
+	{
+		free_matriz(map);
+		ft_quit_default(5);
+	}
 	return (map[i] == NULL);
 }
 
@@ -97,14 +102,15 @@ void	check_map(char **map)
 		i = 1;
 	else if (ft_countline(map) == ft_countstr(map[0]))
 		i = 1;
-	else if ((ft_countstr(map[0]) > 48) || ft_countline(map) > 27)
-		i = 5;
-	flood_fill(map, (t_point){ft_countstr(map[0]), ft_countline(map)},
-		get_start_var(map, 'P'));
-	if ((ft_count_var_game(map, 'E') >= 1)
-		|| (ft_count_var_game(map, 'C') >= 1)
-		|| (ft_count_var_game(map, 'P') >= 1))
-		i = 4;
+	else
+	{
+		flood_fill(map, (t_point){ft_countstr(map[0]), ft_countline(map)},
+			get_start_var(map, 'P'));
+		if ((ft_count_var_game(map, 'E') >= 1)
+			|| (ft_count_var_game(map, 'C') >= 1)
+			|| (ft_count_var_game(map, 'P') >= 1))
+			i = 4;
+	}
 	free_matriz(map);
 	ft_quit_default(i);
 }
